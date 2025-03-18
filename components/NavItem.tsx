@@ -8,9 +8,10 @@ type Props = {
   to: string;
   label: string;
   className?: string;
+  closeMenu: () => void;
 };
 
-export default function NavItem({ to, label, className }: Props) {
+export default function NavItem({ to, label, className, closeMenu }: Props) {
   const pathname = usePathname();
   const isActive =
     pathname === to ||
@@ -18,7 +19,16 @@ export default function NavItem({ to, label, className }: Props) {
 
   return (
     <NavItemStyles className={className ? className : ''}>
-      <Link href={to} role="menuitem" className={isActive ? 'active' : ''}>
+      <Link
+        href={to}
+        onClick={() => {
+          if (pathname === to) {
+            closeMenu();
+          }
+        }}
+        role="menuitem"
+        className={isActive ? 'active' : ''}
+      >
         {label}
       </Link>
     </NavItemStyles>

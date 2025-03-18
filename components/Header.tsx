@@ -56,7 +56,7 @@ export default function Header() {
             <span className="sr-only">Navigation Menu</span>
           </button>
         </div>
-        <Navigation isOpen={isOpen} />
+        <Navigation isOpen={isOpen} closeMenu={() => setIsOpen(false)} />
       </div>
     </HeaderStyles>
   );
@@ -115,10 +115,15 @@ const HeaderStyles = styled.header`
       justify-content: center;
       align-items: center;
       color: #a3a3a3;
+      transition: color 0.2s ease;
 
       svg {
         height: 1.5rem;
         width: 1.5rem;
+      }
+
+      &:hover {
+        color: #333;
       }
     }
   }
