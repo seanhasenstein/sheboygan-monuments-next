@@ -1,8 +1,6 @@
 html,
 body {
   margin: 0;
-  height: 100%;
-  max-width: 100vw;
   overflow-x: hidden;
   background-color: #fafafa;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -16,11 +14,6 @@ body {
 * {
   box-sizing: border-box;
   outline-color: #1967d2;
-}
-
-#___gatsby,
-#gatsby-focus-wrapper {
-  height: 100%;
 }
 
 ul {
