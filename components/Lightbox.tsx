@@ -8,10 +8,10 @@ type Props = {
   setShowLightbox: React.Dispatch<React.SetStateAction<boolean>>;
   selectedImg: number;
   setSelectedImg: React.Dispatch<React.SetStateAction<number>>;
-  prevButton: React.MutableRefObject<HTMLButtonElement | null>;
-  nextButton: React.MutableRefObject<HTMLButtonElement | null>;
-  closeButton: React.MutableRefObject<HTMLButtonElement | null>;
-  imgRef: React.MutableRefObject<HTMLImageElement | null>;
+  prevButton: React.RefObject<HTMLButtonElement | null>;
+  nextButton: React.RefObject<HTMLButtonElement | null>;
+  closeButton: React.RefObject<HTMLButtonElement | null>;
+  imgRef: React.RefObject<HTMLImageElement | null>;
   galleryName: string;
 };
 
