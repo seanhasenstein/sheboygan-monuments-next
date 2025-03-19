@@ -1,13 +1,30 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
 import Navigation from './Navigation';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const pathname = usePathname();
+  const prevPathRef = useRef(pathname);
+
+  useEffect(() => {
+    // Only run when pathname changes, not on initial render
+    if (prevPathRef.current !== pathname) {
+      setIsOpen(false);
+
+      // Smooth scroll to top of page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Update the previous pathname reference
+      prevPathRef.current = pathname;
+    }
+  }, [pathname]);
 
   return (
     <HeaderStyles>

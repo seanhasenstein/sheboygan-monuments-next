@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
 import styled from 'styled-components';
 
 import NavItem from './NavItem';
@@ -12,22 +10,6 @@ type Props = {
 };
 
 export default function Navigation({ isOpen, closeMenu }: Props) {
-  const pathname = usePathname();
-  const prevPathRef = useRef(pathname);
-
-  useEffect(() => {
-    // Only run when pathname changes, not on initial render
-    if (prevPathRef.current !== pathname) {
-      closeMenu();
-
-      // Smooth scroll to top of page
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      // Update the previous pathname reference
-      prevPathRef.current = pathname;
-    }
-  }, [pathname, closeMenu]);
-
   return (
     <NavigationStyles
       aria-label="Sheboygan Monument and Stone Works"
