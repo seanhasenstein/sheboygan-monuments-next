@@ -18,8 +18,8 @@ export default function Header() {
     if (prevPathRef.current !== pathname) {
       setIsOpen(false);
 
-      // Smooth scroll to top of page
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Scroll to top of page
+      window.scrollTo(0, 0);
 
       // Update the previous pathname reference
       prevPathRef.current = pathname;
