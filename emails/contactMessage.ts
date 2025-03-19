@@ -18,7 +18,7 @@ export function createEmailTemplate({
   const createdAt = new Date();
   const timeZone = 'America/Chicago';
   const zonedDate = toZonedTime(createdAt, timeZone);
-  const date = format(zonedDate, 'MMMM do, yyyy - K:mmaaa', {
+  const date = format(zonedDate, 'MMMM do, yyyy - h:mmaaa', {
     timeZone: 'America/Chicago',
   });
   const strippedPhoneNumber = phone.replace(/\D/g, '');
