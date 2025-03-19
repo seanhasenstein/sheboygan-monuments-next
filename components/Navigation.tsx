@@ -18,8 +18,9 @@ export default function Navigation({ isOpen, closeMenu }: Props) {
   useEffect(() => {
     // Only run when pathname changes, not on initial render
     if (prevPathRef.current !== pathname) {
-      // Close menu after navigation is complete
-      closeMenu();
+      if (isOpen) {
+        closeMenu();
+      }
 
       // Smooth scroll to top of page
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -27,7 +28,7 @@ export default function Navigation({ isOpen, closeMenu }: Props) {
       // Update the previous pathname reference
       prevPathRef.current = pathname;
     }
-  }, [pathname, closeMenu]);
+  }, [pathname, closeMenu, isOpen]);
 
   return (
     <NavigationStyles
