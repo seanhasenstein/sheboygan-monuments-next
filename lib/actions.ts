@@ -12,6 +12,7 @@ export type FormState = {
   customerName: string | null;
   email: string | null;
   phone: string | null;
+  companyName: string | null;
   message: string | null;
 } | null;
 
@@ -23,8 +24,24 @@ async function sendContactMessage(
   const customerName = formData.get('customerName') as string;
   const email = formData.get('email') as string;
   const phone = formData.get('phone') as string;
+  const honeypot = formData.get('companyName') as string;
   const message = formData.get('message') as string;
   try {
+    if (honeypot) {
+      // Bot detected via honeypot field
+      console.warn(
+        `Spam bot detected submitting contact form. Honeypot value: ${honeypot}`
+      );
+      return {
+        error: '',
+        customerName: '',
+        email: '',
+        phone: '',
+        companyName: '',
+        message: '',
+      };
+    }
+
     const formattedMessage = {
       id: messageId,
       name: customerName.trim(),
@@ -55,6 +72,7 @@ async function sendContactMessage(
       customerName,
       email,
       phone,
+      companyName: honeypot,
       message,
     };
   }
