@@ -6,6 +6,8 @@ import Gallery from '@/components/Gallery';
 
 export const metadata: Metadata = {
   title: 'Granite Colors Gallery | Sheboygan Monument &amp; Stone Works',
+  description:
+    'Explore the granite colors available for memorials and monuments, from classic grays to rich reds and blacks. Sheboygan Monument & Stone Works.',
 };
 
 export default async function GraniteColorsGalleryPage() {

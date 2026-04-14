@@ -6,6 +6,8 @@ import Gallery from '@/components/Gallery';
 
 export const metadata: Metadata = {
   title: 'Upright Memorials Gallery | Sheboygan Monument &amp; Stone Works',
+  description:
+    'Browse our gallery of upright memorials, the traditional vertical monument style. Custom granite headstones crafted in Sheboygan, Wisconsin.',
 };
 
 export default async function UprightGalleryPage() {

@@ -6,6 +6,8 @@ import Gallery from '@/components/Gallery';
 
 export const metadata: Metadata = {
   title: 'Pet Memorials Gallery | Sheboygan Monument &amp; Stone Works',
+  description:
+    'Browse our gallery of pet memorials, honoring beloved companions with custom granite markers. Crafted in Sheboygan, Wisconsin.',
 };
 
 export default async function PetGalleryPage() {
