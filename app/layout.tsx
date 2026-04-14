@@ -21,7 +21,7 @@ const unna = Unna({
 export const metadata: Metadata = {
   title: 'Sheboygan Monument & Stone Works',
   description:
-    'Providing the highest quality memorial services and products to southeastern Wisconsin for over 40 years.',
+    'Providing the highest quality memorial services and products to southeastern Wisconsin for over 50 years.',
 };
 
 export default function RootLayout({

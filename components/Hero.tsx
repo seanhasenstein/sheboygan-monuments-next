@@ -14,7 +14,7 @@ export default function Hero() {
           </h2>
           <p>
             Providing the highest quality memorial services and products to
-            southeastern Wisconsin for over 40 years.
+            southeastern Wisconsin for over 50 years.
           </p>
           <div className="actions">
             <Link href="/contact" className="primary-link">
