@@ -11,9 +11,11 @@ export default function ContactContent() {
   const [state, formAction] = useActionState(sendContactMessage, null);
   const [isPending, startTransition] = useTransition();
   const [phoneNumber, setPhoneNumber] = useState(state?.phone || '');
+  const [formLoadTime] = useState(() => Date.now());
 
   const handleSubmit = (formData: FormData) => {
     formData.set('phone', phoneNumber);
+    formData.set('formLoadTime', String(formLoadTime));
 
     startTransition(() => {
       formAction(formData);
