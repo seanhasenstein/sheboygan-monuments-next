@@ -5,7 +5,7 @@ import { getImages } from '@/lib/s3';
 import Gallery from '@/components/Gallery';
 
 export const metadata: Metadata = {
-  title: 'Granite Colors Gallery | Sheboygan Monument &amp; Stone Works',
+  title: 'Granite Colors Gallery | Sheboygan Monument & Stone Works',
   description:
     'Explore the granite colors available for memorials and monuments, from classic grays to rich reds and blacks. Sheboygan Monument & Stone Works.',
 };
