@@ -26,19 +26,33 @@ async function sendContactMessage(
   const phone = formData.get('phone') as string;
   const honeypot = formData.get('companyName') as string;
   const message = formData.get('message') as string;
+  const formLoadTime = Number(formData.get('formLoadTime'));
+
+  if (honeypot) {
+    console.warn(
+      `Spam bot detected submitting contact form. Honeypot value: ${honeypot}`
+    );
+    redirect('/contact/success');
+  }
+
+  const elapsed = Date.now() - formLoadTime;
+  if (!formLoadTime || elapsed < 2000) {
+    console.warn(
+      `Spam bot detected submitting contact form. Elapsed time: ${elapsed}ms`
+    );
+    redirect('/contact/success');
+  }
+
   try {
-    if (honeypot) {
-      // Bot detected via honeypot field
-      console.warn(
-        `Spam bot detected submitting contact form. Honeypot value: ${honeypot}`
-      );
+    if (message.trim().split(/\s+/).length < 2) {
       return {
-        error: '',
-        customerName: '',
-        email: '',
-        phone: '',
-        companyName: '',
-        message: '',
+        error:
+          'Please provide a more detailed message so we can better assist you.',
+        customerName,
+        email,
+        phone,
+        companyName: honeypot,
+        message,
       };
     }
 
